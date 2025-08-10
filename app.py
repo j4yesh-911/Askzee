@@ -3,7 +3,7 @@
 # import os
 
 # # Configure Gemini
-# genai.configure(api_key="AIzaSyB9nsn7-umEPTyYeoZR5AEOfHBwuL0NEXk")
+# genai.configure(api_key="")
 
 # model = genai.GenerativeModel("models/gemini-1.5-flash-latest")
 
@@ -85,7 +85,7 @@ if __name__ == "__main__":
 # list_models.py
 # import google.generativeai as genai
 
-# genai.configure(api_key="AIzaSyB9nsn7-umEPTyYeoZR5AEOfHBwuL0NEXk")
+# genai.configure(api_key="")
 
 # for model in genai.list_models():
 #     if "generateContent" in model.supported_generation_methods:
