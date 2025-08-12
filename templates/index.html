@@ -35,24 +35,11 @@
 
 
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Askzee - Professional AI Assistant</title>
-    <meta name="description" content="Professional AI assistant with intelligent conversations and seamless user experience." />
-    <meta name="author" content="Askzee AI" />
-    <meta name="keywords" content="AI assistant, artificial intelligence, professional chatbot, business AI" />
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Askzee - Professional AI Assistant" />
-    <meta property="og:description" content="Professional AI assistant with intelligent conversations and seamless user experience." />
-    <meta property="og:type" content="website" />
-    
-    <!-- Theme -->
-    <meta name="theme-color" content="#0f172a" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
+    <title>Askzee - Advanced AI Assistant</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -61,157 +48,177 @@
                 extend: {
                     colors: {
                         primary: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            200: '#bae6fd',
-                            300: '#7dd3fc',
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            700: '#0369a1',
-                            800: '#075985',
-                            900: '#0c4a6e',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
                         },
-                        gray: {
-                            50: '#f8fafc',
-                            100: '#f1f5f9',
-                            200: '#e2e8f0',
-                            300: '#cbd5e1',
-                            400: '#94a3b8',
-                            500: '#64748b',
-                            600: '#475569',
-                            700: '#334155',
-                            800: '#1e293b',
-                            900: '#0f172a',
+                        purple: {
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                        },
+                        pink: {
+                            500: '#ec4899',
+                            600: '#db2777',
                         }
                     },
                     animation: {
-                        'fade-in': 'fadeIn 0.5s ease-out',
-                        'slide-up': 'slideUp 0.4s ease-out',
-                        'pulse-subtle': 'pulseSubtle 2s ease-in-out infinite',
-                        'theme-rotate': 'themeRotate 0.5s ease-in-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-in-left': 'slideInLeft 0.5s ease-out',
+                        'slide-in-right': 'slideInRight 0.5s ease-out',
+                        'bounce-in': 'bounceIn 0.6s ease-out',
+                        'pulse-ring': 'pulseRing 2s infinite',
+                        'gradient-shift': 'gradientShift 3s ease infinite',
+                        'typing': 'typing 1.5s infinite',
+                        'matrix': 'matrix 20s linear infinite',
+                        'particle': 'particle 8s linear infinite',
                     }
                 }
             }
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: 'Inter', sans-serif;
         }
 
-        /* Enhanced theme-aware body styles */
-        body.light-theme {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            color: #1e293b;
+        /* Animated Background */
+        .animated-bg {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
         }
 
-        body.dark-theme {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #f1f5f9;
+        .dark .animated-bg {
+            background: linear-gradient(-45deg, #0f0f23, #1a1a2e, #16213e, #0f3460, #533483, #7209b7);
+            background-size: 400% 400%;
         }
 
-        /* Enhanced glass effect with theme awareness */
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.1;
+            animation: particle 8s linear infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 1s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 2s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 3s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 4s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 5s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 6s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 7s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: 8s; }
+
+        /* Glass morphism effect */
         .glass {
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .dark .glass {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Neon glow effect */
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3), 0 0 60px rgba(59, 130, 246, 0.1);
+        }
+
+        .dark .neon-glow {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.3), 0 0 60px rgba(139, 92, 246, 0.1);
+        }
+
+        /* Custom scrollbar with glow */
+        .chat-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        .chat-scroll::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            /* border-radius: 10px; */
+        }
+        .chat-scroll::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+        
+
+        /* Keyframe animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+            to { box-shadow: 0 0 30px rgba(59, 130, 246, 0.8), 0 0 40px rgba(59, 130, 246, 0.6); }
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes pulseRing {
+            0% { transform: scale(0.33); }
+            80%, 100% { opacity: 0; }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
+
+        @keyframes particle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.1; }
+            90% { opacity: 0.1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Hover effects */
+        .hover-lift {
             transition: all 0.3s ease;
         }
-
-        .light-theme .glass {
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
-        .dark-theme .glass {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(148, 163, 184, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Enhanced theme toggle with smooth rotation */
-        .theme-toggle {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.05);
-            background: rgba(148, 163, 184, 0.1);
-        }
-
-        .theme-toggle:active {
-            transform: scale(0.95);
-        }
-
-        .theme-icon {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Subtle Glow */
-        .glow {
-            box-shadow: 0 0 20px rgba(14, 165, 233, 0.15);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .glow:hover {
-            box-shadow: 0 0 30px rgba(14, 165, 233, 0.25);
-        }
-
-        /* Enhanced custom scrollbar with theme awareness */
-        .custom-scroll::-webkit-scrollbar {
-            width: 6px;
-        }
-        
-        .light-theme .custom-scroll::-webkit-scrollbar-track {
-            background: rgba(148, 163, 184, 0.2);
-            border-radius: 3px;
-        }
-        
-        .dark-theme .custom-scroll::-webkit-scrollbar-track {
-            background: rgba(30, 41, 59, 0.5);
-            border-radius: 3px;
-        }
-        
-        .light-theme .custom-scroll::-webkit-scrollbar-thumb {
-            background: rgba(14, 165, 233, 0.4);
-            border-radius: 3px;
-        }
-
-        .dark-theme .custom-scroll::-webkit-scrollbar-thumb {
-            background: rgba(14, 165, 233, 0.3);
-            border-radius: 3px;
-        }
-
-        .custom-scroll::-webkit-scrollbar-thumb:hover {
-            background: rgba(14, 165, 233, 0.6);
-        }
-
-        /* Message Animations */
-        .message-enter {
-            animation: slideUp 0.4s ease-out;
-        }
-
-        /* Enhanced button with better hover states */
-        .btn-primary {
-            background: linear-gradient(135deg, #0ea5e9, #0284c7);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Message bubble effects */
+        .message-bubble {
             position: relative;
             overflow: hidden;
         }
 
-        .btn-primary::before {
+        .message-bubble::before {
             content: '';
             position: absolute;
             top: 0;
@@ -222,145 +229,86 @@
             transition: left 0.5s;
         }
 
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #0284c7, #0369a1);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.3);
-        }
-
-        .btn-primary:hover::before {
+        .message-bubble:hover::before {
             left: 100%;
         }
 
-        .btn-primary:active {
-            transform: translateY(0);
-        }
-
-        /* Enhanced input focus with theme awareness */
-        .input-focus:focus {
-            outline: none;
-            border-color: #0ea5e9;
-            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
-            transform: translateY(-1px);
-        }
-
-        /* Typing Indicator */
+        /* Typing indicator */
         .typing-dot {
             animation: typing 1.4s infinite ease-in-out;
         }
-        
-        .light-theme .typing-dot {
-            background: #64748b;
-        }
-
-        .dark-theme .typing-dot {
-            background: #94a3b8;
-        }
-        
         .typing-dot:nth-child(1) { animation-delay: -0.32s; }
         .typing-dot:nth-child(2) { animation-delay: -0.16s; }
         .typing-dot:nth-child(3) { animation-delay: 0s; }
 
-        /* Keyframes */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        /* Interactive button effects */
+        .btn-interactive {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        @keyframes slideUp {
-            from { 
-                opacity: 0; 
-                transform: translateY(20px); 
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
+        .btn-interactive::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
         }
 
-        @keyframes pulseSubtle {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+        .btn-interactive:active::before {
+            width: 300px;
+            height: 300px;
         }
 
-        @keyframes typing {
-            0%, 60%, 100% { 
-                transform: translateY(0); 
-                opacity: 0.4; 
-            }
-            30% { 
-                transform: translateY(-10px); 
-                opacity: 1; 
-            }
-        }
-
-        @keyframes themeRotate {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.1); }
-            100% { transform: rotate(360deg) scale(1); }
-        }
-
-        /* Enhanced responsive design */
-        @media (max-width: 768px) {
-            .glass {
-                backdrop-filter: blur(15px);
-                -webkit-backdrop-filter: blur(15px);
-            }
-            
-            .btn-primary:hover {
-                transform: none;
-            }
-            
-            .theme-toggle:hover {
-                transform: none;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .message-enter {
-                animation: slideUp 0.3s ease-out;
-            }
-        }
-
-        /* Enhanced accessibility and focus states */
-        .focus-visible:focus-visible {
-            outline: 2px solid #0ea5e9;
-            outline-offset: 2px;
-        }
-
-        /* Smooth theme transition for all elements */
-        * {
-            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-        }
+        
     </style>
 </head>
-<body class="min-h-screen dark-theme">
-    <!-- Header -->
-    <header class="glass sticky top-0 z-50 border-b">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4">
+<body class="animated-bg min-h-screen overflow-hidden">
+     <!-- Floating Particles  -->
+    <div class="fixed inset-0 pointer-events-none">
+        <div class="particle w-2 h-2 bg-blue-400 rounded-full"></div>
+        <div class="particle w-3 h-3 bg-purple-400 rounded-full"></div>
+        <div class="particle w-1 h-1 bg-pink-400 rounded-full"></div>
+        <div class="particle w-2 h-2 bg-blue-300 rounded-full"></div>
+        <div class="particle w-4 h-4 bg-purple-300 rounded-full"></div>
+        <div class="particle w-1 h-1 bg-pink-300 rounded-full"></div>
+        <div class="particle w-3 h-3 bg-blue-200 rounded-full"></div>
+        <div class="particle w-2 h-2 bg-purple-200 rounded-full"></div>
+        <div class="particle w-1 h-1 bg-pink-200 rounded-full"></div>
+    </div>
+
+     Header 
+    <header class="glass sticky top-0 z-50 border-b border-white/20">
+        <div class="max-w-6xl mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3 animate-fade-in">
+                <div class="flex items-center space-x-4">
                     <div class="relative">
-                        <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center glow">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                            </svg>
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center animate-float neon-glow">
+                            <span class="text-white font-bold text-xl">🤖</span>
                         </div>
-                        <div class="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse-subtle"></div>
+                        <div class="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
                     </div>
                     <div>
-                        <h1 class="text-xl font-bold">Askzee</h1>
-                        <p class="text-sm opacity-70">AI Assistant</p>
+                        <h1 class="text-2xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                         Askzee
+                        </h1>
+                        <p class="text-white/70 text-sm animate-pulse">Advanced AI Assistant</p>
                     </div>
                 </div>
                 
-                <!-- Fixed theme toggle with proper icon logic and smooth animation -->
-                <button id="themeToggle" class="theme-toggle glass p-2.5 rounded-lg focus-visible" aria-label="Toggle theme">
-                    <div class="relative w-5 h-5">
-                        <svg id="sunIcon" class="theme-icon absolute inset-0 w-5 h-5 opacity-70 hover:opacity-100" fill="currentColor" viewBox="0 0 20 20">
+                 <!-- Theme Toggle with Animation  -->
+                <button id="themeToggle" class="btn-interactive glass p-3 rounded-2xl hover-lift neon-glow group">
+                    <div class="relative w-6 h-6">
+                        <svg id="sunIcon" class="absolute inset-0 w-6 h-6 text-yellow-300 transition-all duration-500 rotate-0 scale-100 dark:rotate-90 dark:scale-0" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
                         </svg>
-                        <svg id="moonIcon" class="theme-icon absolute inset-0 w-5 h-5 opacity-70 hover:opacity-100" fill="currentColor" viewBox="0 0 20 20">
+                        <svg id="moonIcon" class="absolute inset-0 w-6 h-6 text-purple-300 transition-all duration-500 rotate-90 scale-0 dark:rotate-0 dark:scale-100" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                         </svg>
                     </div>
@@ -369,51 +317,57 @@
         </div>
     </header>
 
-    <!-- Main Chat Container -->
+     <!-- Main Chat Container  -->
     <main class="flex flex-col h-screen">
-        <!-- Chat Messages Area -->
-        <div id="chatContainer" class="flex-1 overflow-y-auto custom-scroll px-4 sm:px-6 py-6" style="height: calc(100vh - 160px);">
-            <!-- Welcome Message -->
-            <div class="flex justify-center animate-fade-in" style="margin-top: 80px;">
-                <div class="glass rounded-2xl p-6 sm:p-8 max-w-md text-center">
-                    <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center mx-auto mb-6 glow">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
+         <!-- Chat Messages Area  -->
+        <div id="chatContainer" class="flex-1 overflow-y-auto chat-scroll px-6 py-8 space-y-6" style="height: calc(100vh - 200px);">
+             <!-- Welcome Message with Advanced Animation  -->
+            <!-- shifted a bit down for clearer middle placement -->
+            <div class="flex justify-center animate-bounce-in" style="margin-top:100px;">
+                <div class="glass rounded-3xl p-8 max-w-md text-center hover-lift neon-glow">
+                    <div class="relative mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto animate-float">
+                            <span class="text-white text-3xl">🚀</span>
+                        </div>
+                        <div class="absolute inset-0 w-20 h-20 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-full mx-auto animate-pulse-ring opacity-75"></div>
                     </div>
-                    <h2 class="text-2xl font-bold mb-3">Welcome to Askzee</h2>
-                    <p class="opacity-80 leading-relaxed">
-                        Your professional AI assistant ready to help with any questions or tasks. Start a conversation below.
+                    <h3 class="text-2xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent mb-3">
+                        Welcome to Askzee!
+                    </h3>
+                    <p class="text-white/80 leading-relaxed">
+                        Experience the future of AI conversation with stunning visuals and smooth interactions. Let's create something amazing together! ✨
                     </p>
                 </div>
             </div>
         </div>
-
-        <!-- Enhanced input area with better responsive design -->
-        <div class="glass border-t p-4 sm:p-6">
+<!-- 
+         Input Area (mic removed) -->
+        <div class="glass border-t border-white/20 p-6">
             <div class="max-w-4xl mx-auto">
                 <form id="chatForm" class="relative">
-                    <div class="flex items-end space-x-2 sm:space-x-3">
+                    <div class="flex items-end space-x-4">
                         <div class="flex-1 relative">
                             <textarea 
                                 id="userInput" 
-                                placeholder="Ask me anything..." 
+                                placeholder="Type your message..." 
                                 rows="1"
-                                class="input-focus w-full px-3 sm:px-4 py-3 pr-4 glass rounded-xl resize-none placeholder-opacity-60 transition-all duration-300 text-sm border-0"
-                                style="min-height: 48px; max-height: 120px;"
+                                class="w-full px-6 py-4 pr-8 glass rounded-3xl focus:ring-2 focus:ring-blue-400 focus:border-transparent resize-none text-white placeholder-white/60 transition-all duration-300 hover:shadow-lg focus:shadow-xl neon-glow"
+                                style="min-height: 56px; max-height: 120px;"
                             ></textarea>
                         </div>
                         
+                         <!-- Enhanced Send Button  -->
                         <button 
                             type="submit" 
                             id="sendButton"
-                            class="btn-primary p-3 rounded-xl transition-all duration-300 min-w-[48px] h-12 flex items-center justify-center focus-visible"
-                            aria-label="Send message"
+                            class="btn-interactive glass p-4 rounded-3xl hover-lift neon-glow group transition-all duration-300 min-w-[56px] h-14"
                         >
-                            <svg id="sendIcon" class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                            </svg>
-                            <div id="sendSpinner" class="hidden w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                            <div class="relative">
+                                <svg id="sendIcon" class="w-6 h-6 text-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                </svg>
+                                <div id="sendSpinner" class="hidden w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                            </div>
                         </button>
                     </div>
                 </form>
@@ -421,51 +375,32 @@
         </div>
     </main>
 
+     <!-- Sound Effects (Optional)  -->
+    <audio id="sendSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT" type="audio/wav">
+    </audio>
+
     <script>
+        // Enhanced Theme Management with Smooth Transitions
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
-        const body = document.body;
-        const sunIcon = document.getElementById('sunIcon');
-        const moonIcon = document.getElementById('moonIcon');
         
-        // Set dark theme as default
-        const currentTheme = localStorage.getItem('theme') || 'dark';
-        
-        function updateTheme(theme) {
-            html.classList.toggle('dark', theme === 'dark');
-            body.className = body.className.replace(/\b(light|dark)-theme\b/g, '');
-            body.classList.add(`${theme}-theme`);
-            
-            // Update icons with proper logic
-            if (theme === 'dark') {
-                sunIcon.style.transform = 'rotate(0deg) scale(1)';
-                sunIcon.style.opacity = '0.7';
-                moonIcon.style.transform = 'rotate(180deg) scale(0)';
-                moonIcon.style.opacity = '0';
-            } else {
-                sunIcon.style.transform = 'rotate(180deg) scale(0)';
-                sunIcon.style.opacity = '0';
-                moonIcon.style.transform = 'rotate(0deg) scale(1)';
-                moonIcon.style.opacity = '0.7';
-            }
-        }
-        
-        // Initialize theme
-        updateTheme(currentTheme);
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.classList.toggle('dark', currentTheme === 'dark');
         
         themeToggle.addEventListener('click', () => {
-            const newTheme = html.classList.contains('dark') ? 'light' : 'dark';
+            html.classList.toggle('dark');
+            const newTheme = html.classList.contains('dark') ? 'dark' : 'light';
             localStorage.setItem('theme', newTheme);
-            updateTheme(newTheme);
             
-            // Add rotation animation
-            themeToggle.style.animation = 'themeRotate 0.5s ease-in-out';
+            // Add ripple effect
+            themeToggle.style.transform = 'scale(0.95)';
             setTimeout(() => {
-                themeToggle.style.animation = '';
-            }, 500);
+                themeToggle.style.transform = 'scale(1)';
+            }, 150);
         });
 
-        // Chat Functionality
+        // Chat Functionality with Enhanced Animations
         const chatForm = document.getElementById('chatForm');
         const userInput = document.getElementById('userInput');
         const chatContainer = document.getElementById('chatContainer');
@@ -473,13 +408,13 @@
         const sendIcon = document.getElementById('sendIcon');
         const sendSpinner = document.getElementById('sendSpinner');
 
+        // Auto-resize textarea with smooth animation
         userInput.addEventListener('input', function() {
             this.style.height = 'auto';
-            const newHeight = Math.min(this.scrollHeight, 120);
-            this.style.height = newHeight + 'px';
+            this.style.height = Math.min(this.scrollHeight, 120) + 'px';
         });
 
-        // Enter to send
+        // Enhanced keyboard handling
         userInput.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
@@ -487,57 +422,80 @@
             }
         });
 
+        // Focus effects
+        userInput.addEventListener('focus', function() {
+            this.parentElement.style.transform = 'scale(1.02)';
+            this.parentElement.style.boxShadow = '0 0 30px rgba(59, 130, 246, 0.3)';
+        });
+
+        userInput.addEventListener('blur', function() {
+            this.parentElement.style.transform = 'scale(1)';
+            this.parentElement.style.boxShadow = '';
+        });
+
+        // Create enhanced message bubble
         function createMessageBubble(message, isUser = false) {
             const messageDiv = document.createElement('div');
-            messageDiv.className = `flex ${isUser ? 'justify-end' : 'justify-start'} message-enter mb-4`;
+            messageDiv.className = `flex ${isUser ? 'justify-end' : 'justify-start'} ${isUser ? 'animate-slide-in-right' : 'animate-slide-in-left'}`;
             
             if (!isUser) {
+                // Bot avatar with animation
                 const avatarContainer = document.createElement('div');
-                avatarContainer.className = 'flex-shrink-0 mr-3';
+                avatarContainer.className = 'flex-shrink-0 mr-4';
                 
                 const avatar = document.createElement('div');
-                avatar.className = 'w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center';
-                avatar.innerHTML = '<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>';
+                avatar.className = 'w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center animate-float neon-glow';
+                avatar.innerHTML = '<span class="text-white text-lg">🤖</span>';
                 
                 avatarContainer.appendChild(avatar);
                 messageDiv.appendChild(avatarContainer);
             }
             
             const bubble = document.createElement('div');
-            bubble.className = `max-w-xs sm:max-w-md px-4 py-3 rounded-2xl transition-all duration-300 ${
+            bubble.className = `message-bubble max-w-xs lg:max-w-md px-6 py-4 rounded-3xl glass hover-lift transition-all duration-300 ${
                 isUser 
-                    ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-lg' 
-                    : 'glass border'
+                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white neon-glow' 
+                    : 'text-white border border-white/20'
             }`;
             
-            bubble.innerHTML = `<div class="text-sm leading-relaxed">${message.replace(/\n/g, '<br>')}</div>`;
-            messageDiv.appendChild(bubble);
+            // Add typing animation for bot messages
+            if (!isUser) {
+                bubble.innerHTML = '<div class="flex space-x-1"><div class="typing-dot w-2 h-2 bg-white/60 rounded-full"></div><div class="typing-dot w-2 h-2 bg-white/60 rounded-full"></div><div class="typing-dot w-2 h-2 bg-white/60 rounded-full"></div></div>';
+                
+                setTimeout(() => {
+                    bubble.innerHTML = message.replace(/\n/g, '<br>');
+                    bubble.classList.add('animate-bounce-in');
+                }, 1000);
+            } else {
+                bubble.innerHTML = message.replace(/\n/g, '<br>');
+            }
             
+            messageDiv.appendChild(bubble);
             return messageDiv;
         }
 
-        // Create typing indicator
+        // Enhanced typing indicator
         function createTypingIndicator() {
             const typingDiv = document.createElement('div');
-            typingDiv.className = 'flex justify-start message-enter mb-4';
+            typingDiv.className = 'flex justify-start animate-slide-in-left';
             typingDiv.id = 'typingIndicator';
             
             const avatarContainer = document.createElement('div');
-            avatarContainer.className = 'flex-shrink-0 mr-3';
+            avatarContainer.className = 'flex-shrink-0 mr-4';
             
             const avatar = document.createElement('div');
-            avatar.className = 'w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center';
-            avatar.innerHTML = '<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>';
+            avatar.className = 'w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center animate-pulse neon-glow';
+            avatar.innerHTML = '<span class="text-white text-lg">🤖</span>';
             
             avatarContainer.appendChild(avatar);
             
             const bubble = document.createElement('div');
-            bubble.className = 'glass px-4 py-3 rounded-2xl border';
+            bubble.className = 'glass px-6 py-4 rounded-3xl border border-white/20 hover-lift';
             bubble.innerHTML = `
-                <div class="flex space-x-1">
-                    <div class="typing-dot w-2 h-2 rounded-full"></div>
-                    <div class="typing-dot w-2 h-2 rounded-full"></div>
-                    <div class="typing-dot w-2 h-2 rounded-full"></div>
+                <div class="flex space-x-2">
+                    <div class="typing-dot w-3 h-3 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
+                    <div class="typing-dot w-3 h-3 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
+                    <div class="typing-dot w-3 h-3 bg-gradient-to-r from-pink-400 to-blue-400 rounded-full"></div>
                 </div>
             `;
             
@@ -547,7 +505,7 @@
             return typingDiv;
         }
 
-        // Smooth scroll
+        // Smooth scroll with easing
         function scrollToBottom() {
             chatContainer.scrollTo({
                 top: chatContainer.scrollHeight,
@@ -555,27 +513,35 @@
             });
         }
 
-        // Form submission
+        // Enhanced form submission with animations
         chatForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
             const message = userInput.value.trim();
             if (!message) return;
             
-            // Add user message
+            // Play send sound effect
+            // document.getElementById('sendSound').play().catch(() => {});
+            
+            // Add user message with animation
             const userMessage = createMessageBubble(message, true);
             chatContainer.appendChild(userMessage);
             
-            // Clear input
-            userInput.value = '';
-            userInput.style.height = 'auto';
+            // Clear input with animation
+            userInput.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                userInput.value = '';
+                userInput.style.height = 'auto';
+                userInput.style.transform = 'scale(1)';
+            }, 100);
             
-            // Show loading state
+            // Enhanced loading state
             sendButton.disabled = true;
+            sendButton.style.transform = 'scale(0.95)';
             sendIcon.classList.add('hidden');
             sendSpinner.classList.remove('hidden');
             
-            // Add typing indicator
+            // Add typing indicator with delay
             setTimeout(() => {
                 const typingIndicator = createTypingIndicator();
                 chatContainer.appendChild(typingIndicator);
@@ -583,54 +549,83 @@
             }, 300);
             
             try {
-                // Simulate AI response
-                await new Promise(resolve => setTimeout(resolve, 1500));
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: message })
+                });
                 
-                const responses = [
-                    "I understand your question. Let me provide you with a comprehensive and helpful response based on the information you've shared.",
-                    "That's an excellent point. Here's my analysis and recommendations for addressing this effectively.",
-                    "I can help you with that. Based on current best practices, here's what I would suggest for your situation.",
-                    "Thank you for that question. Let me break this down into actionable steps that you can implement.",
-                    "I appreciate you bringing this up. Here's a strategic approach that should help you achieve your goals.",
-                ];
-
+                const data = await response.json();
+                
+                // Remove typing indicator with animation
                 const indicator = document.getElementById('typingIndicator');
                 if (indicator) {
-                    indicator.remove();
+                    indicator.style.transform = 'scale(0.8)';
+                    indicator.style.opacity = '0';
+                    setTimeout(() => indicator.remove(), 300);
                 }
                 
-                const botMessage = createMessageBubble(responses[Math.floor(Math.random() * responses.length)]);
-                chatContainer.appendChild(botMessage);
-                scrollToBottom();
+                // Add bot response with delay for better UX
+                setTimeout(() => {
+                    const botMessage = createMessageBubble(data.response || 'Sorry, I encountered an error.');
+                    chatContainer.appendChild(botMessage);
+                    scrollToBottom();
+                }, 500);
                 
             } catch (error) {
                 console.error('Error:', error);
                 
                 const indicator = document.getElementById('typingIndicator');
                 if (indicator) {
-                    indicator.remove();
+                    indicator.style.transform = 'scale(0.8)';
+                    indicator.style.opacity = '0';
+                    setTimeout(() => indicator.remove(), 300);
                 }
                 
-                const errorMessage = createMessageBubble('I apologize, but I encountered an error. Please try again.');
-                chatContainer.appendChild(errorMessage);
-                scrollToBottom();
+                setTimeout(() => {
+                    const errorMessage = createMessageBubble('Sorry, I encountered an error. Please try again. 🔄');
+                    chatContainer.appendChild(errorMessage);
+                    scrollToBottom();
+                }, 500);
             } finally {
-                sendButton.disabled = false;
-                sendIcon.classList.remove('hidden');
-                sendSpinner.classList.add('hidden');
-                userInput.focus();
+                // Reset loading state with animation
+                setTimeout(() => {
+                    sendButton.disabled = false;
+                    sendButton.style.transform = 'scale(1)';
+                    sendIcon.classList.remove('hidden');
+                    sendSpinner.classList.add('hidden');
+                    userInput.focus();
+                }, 800);
             }
+        });
+
+        // Add particle interaction on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach((particle, index) => {
+                const speed = (index + 1) * 0.01;
+                const x = (e.clientX * speed) % window.innerWidth;
+                const y = (e.clientY * speed) % window.innerHeight;
+                
+                particle.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+            });
         });
 
         // Initialize
         userInput.focus();
+        
+        // Add welcome animation delay
+        setTimeout(() => {
+            const welcomeMsg = document.querySelector('.animate-bounce-in');
+            if (welcomeMsg) {
+                welcomeMsg.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    welcomeMsg.style.transform = 'scale(1)';
+                }, 200);
+            }
+        }, 1000);
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
