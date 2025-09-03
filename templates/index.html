@@ -625,7 +625,22 @@
                     welcomeMsg.style.transform = 'scale(1)';
                 }, 200);
             }
+
+              narrate(data.response);
         }, 1000);
+
+
+        // Narration function using Web Speech API
+function narrate(text) {
+    if (!text) return;
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "en-US"; // change to "hi-IN" for Hindi etc.
+    speechSynthesis.speak(utterance);
+}
+
+
+
+
     </script>
 </body>
 </html>
