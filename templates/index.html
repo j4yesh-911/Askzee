@@ -373,6 +373,16 @@
                 </form>
             </div>
         </div>
+
+        <div class="flex space-x-4 mt-4 justify-center">
+  <button onclick="stopVoice()" class="px-4 py-2 glass rounded-xl neon-glow">🛑 Stop</button>
+  <button onclick="pauseVoice()" class="px-4 py-2 glass rounded-xl neon-glow">⏸ Pause</button>
+  <button onclick="resumeVoice()" class="px-4 py-2 glass rounded-xl neon-glow">▶ Resume</button>
+  <select id="voiceSelect" onchange="changeVoice()" class="glass px-3 py-2 rounded-xl">
+    <option value="">Default</option>
+  </select>
+</div>
+
     </main>
 
      <!-- Sound Effects (Optional)  -->
@@ -380,7 +390,7 @@
         <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT" type="audio/wav">
     </audio>
 
-  <script>
+<script>
     // Theme Management
     const themeToggle = document.getElementById('themeToggle');
     const html = document.documentElement;
@@ -487,16 +497,62 @@
         chatContainer.scrollTo({ top: chatContainer.scrollHeight, behavior: 'smooth' });
     }
 
-    // 🔊 Narration function
+    // =============== 🔊 VOICE ASSISTANT PART ===============
+
+    let currentUtterance = null;
+    let voices = [];
+
     function narrate(text) {
         if (!text) return;
-        speechSynthesis.cancel(); // stop any previous speech
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = "en-US";
-        utterance.rate = 1;
-        utterance.pitch = 1;
-        speechSynthesis.speak(utterance);
+        speechSynthesis.cancel(); // stop old speech
+        currentUtterance = new SpeechSynthesisUtterance(text);
+
+        // Use selected voice if chosen
+        const selectedVoice = document.getElementById("voiceSelect")?.value;
+        if (selectedVoice) {
+            const voice = voices.find(v => v.name === selectedVoice);
+            if (voice) currentUtterance.voice = voice;
+        }
+
+        currentUtterance.lang = "en-US";
+        currentUtterance.rate = 1;
+        currentUtterance.pitch = 1;
+        speechSynthesis.speak(currentUtterance);
     }
+
+    function stopVoice() {
+        speechSynthesis.cancel();
+    }
+
+    function pauseVoice() {
+        if (speechSynthesis.speaking && !speechSynthesis.paused) {
+            speechSynthesis.pause();
+        }
+    }
+
+    function resumeVoice() {
+        if (speechSynthesis.paused) {
+            speechSynthesis.resume();
+        }
+    }
+
+    function loadVoices() {
+        voices = speechSynthesis.getVoices();
+        const voiceSelect = document.getElementById("voiceSelect");
+        if (!voiceSelect) return;
+
+        voiceSelect.innerHTML = `<option value="">Default</option>`;
+        voices.forEach(voice => {
+            const option = document.createElement("option");
+            option.value = voice.name;
+            option.textContent = `${voice.name} (${voice.lang})`;
+            voiceSelect.appendChild(option);
+        });
+    }
+
+    speechSynthesis.onvoiceschanged = loadVoices;
+
+    // =======================================================
 
     // Chat submit handler
     chatForm.addEventListener('submit', async (e) => {
