@@ -616,16 +616,32 @@
         // Initialize
         userInput.focus();
         
+
+
+
+        function narrate(text) {
+    if (!text) return;
+    speechSynthesis.cancel();  // stop any previous speech
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "en-US";  // you can change voice locale
+    utterance.rate = 1;        // speed
+    utterance.pitch = 1;       // tone
+    speechSynthesis.speak(utterance);
+}
+
+
+
         // Add welcome animation delay
-        setTimeout(() => {
-            const welcomeMsg = document.querySelector('.animate-bounce-in');
-            if (welcomeMsg) {
-                welcomeMsg.style.transform = 'scale(1.05)';
-                setTimeout(() => {
-                    welcomeMsg.style.transform = 'scale(1)';
-                }, 200);
-            }
-        }, 1000);
+     setTimeout(() => {
+    const botResponse = data.response || 'Sorry, I encountered an error.';
+    const botMessage = createMessageBubble(botResponse);
+    chatContainer.appendChild(botMessage);
+    scrollToBottom();
+
+    // 🔊 Speak response aloud
+    narrate(botResponse);
+}, 500);
+
 
 
         
